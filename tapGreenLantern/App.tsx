@@ -4,7 +4,7 @@ import symbolOn from './assets/pictures/symbol_on.png';
 import symbolOff from './assets/pictures/symbol_off.png';
 import Torch from 'react-native-torch';
 import { Platform } from 'react-native';
-// import RNShake from 'react-native-shake';
+import RNShake from 'react-native-shake';
 
 
 export default function App() {
@@ -34,19 +34,16 @@ export default function App() {
       } catch (error) {
         console.error(error);
       }
-
-      
     }
-  
     toggleTorch();
   }, [isActive]);
 
-  // useEffect(()=>{
-  //   const subscription = RNShake.addListener(()=>{
-  //     handleSymbol()
-  //   });
-  //   return () => subscription.remove();
-  // }, []);
+  useEffect(()=>{
+    const subscription = RNShake.addListener(()=>{
+      handleSymbol()
+  });
+    return () => subscription.remove();
+  }, []);
 
   return (
     <View style={isActive ? styles.containerOn : styles.containerOff}>
