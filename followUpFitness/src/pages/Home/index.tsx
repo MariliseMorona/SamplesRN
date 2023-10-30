@@ -80,7 +80,6 @@ const handleOneNewItem = (): void => {
                 <FAB
                 icon={<Feather name="plus" size={24} color="white" />}
                 visible={true}
-                
                 color="#1e3ba1"
                 style={{ marginRight: 20, right: 20, bottom: 20 }}
                 onPress={handleOneNewItem}/>
