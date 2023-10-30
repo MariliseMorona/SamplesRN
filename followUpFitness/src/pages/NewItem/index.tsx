@@ -1,15 +1,28 @@
 import React, { useState } from "react";
 import { Container, FormContainer, ButtonContainer } from './styles';
 import { Button, Input } from 'react-native-elements'
+import { useData } from "../../hooks/data";
+import { generateUniqueId } from "../../helpers";
+import { useNavigation } from "@react-navigation/native";
+import moment from 'moment';
 
 const NewItem = () => {
+    const { addItem } = useData()
+const navigation = useNavigation()
 
     const [name, setName] = useState('')
     const [kcal, setKcal] = useState('')
 
     const handleOnSave = () => {
-        console.log(name, kcal);
-        
+        if(name && kcal){
+            addItem({
+                id: generateUniqueId(),
+                name,
+                kcal: Number(kcal),
+                date: moment()
+            })
+            navigation.goBack()
+        }
         
     }
     return(

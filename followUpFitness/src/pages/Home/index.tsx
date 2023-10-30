@@ -7,6 +7,7 @@ import { Feather } from '@expo/vector-icons';
 import { useNavigation } from "@react-navigation/native"
 import { Container, HeaderContainer, HeaderContainerHighlight, HeaderTextCounterHighlight, HeaderTextHighlight, HeaderTitle, BodyContainer} from './styles';
 import ItemList from '../../components/itemList';
+import { useData } from '../../hooks/data'
 
 
 
@@ -14,21 +15,7 @@ import ItemList from '../../components/itemList';
 function Home() {
 
     const navigation = useNavigation();
-
-
-const data = [{
-    id: 'testando',
-    name: 'teste',
-    kcal: 400,
-    date: moment() 
-    },
-    {
-        id: 'testando2',
-    name: 'outroTeste',
-    kcal: 300,
-    date: moment() 
-    }
-]
+    const { handleChangeDate, currentList, currentKcal } = useData()
 
 
 const handleOneNewItem = (): void => {
@@ -54,7 +41,7 @@ const handleOneNewItem = (): void => {
                 disabledDateNameStyle={{ color: "grey" }}
                 disabledDateNumberStyle={{ color: "grey" }}
                 iconContainer={{ flex: 0.1 }}
-                onDateSelected={()=> null}
+                onDateSelected={handleChangeDate}
                 startingDate={moment().subtract(3, "days")}
                 selectedDate={moment()}
                 scrollerPaging={true}
@@ -64,7 +51,7 @@ const handleOneNewItem = (): void => {
             <HeaderTitle>Consumido no dia</HeaderTitle>
             <HeaderContainerHighlight>
                 <HeaderTextCounterHighlight>
-                    100
+                    {currentKcal}
                 </HeaderTextCounterHighlight>
                 <HeaderTextHighlight>
                      /kcal
@@ -73,7 +60,7 @@ const handleOneNewItem = (): void => {
             </HeaderContainer>
             <BodyContainer>
                 <FlatList
-                data={data}
+                data={currentList}
                 keyExtractor={item => item.id}
                 renderItem={({item}) => <ItemList item={item}/>}>
                 </FlatList>

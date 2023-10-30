@@ -4,13 +4,13 @@ export interface Item {
     id: string;
     name: string;
     kcal: number;
-    date: MomentInput;
+    date: MomentInput
 }
 
-export interface DateProvideDate {
+export interface DateProviderDate {
     currentDate: MomentInput;
     currentKcal: number;
     currentList: Item[];
-    handleChangeDate: (date: MomentInput) => void;
-    addItem: (item: Item) => void;
+    handleChangeDate: (data: MomentInput) => void;
+    addItem: (item: Item) => void
 }
