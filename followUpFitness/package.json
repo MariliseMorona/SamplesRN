@@ -1,12 +1,13 @@
 {
   "dependencies": {
     "@expo/vector-icons": "^13.0.0",
-    "@react-native-async-storage/async-storage": "^1.13.0",
+    "@react-native-async-storage/async-storage": "^1.18.2",
     "@react-native-community/masked-view": "^0.1.11",
     "@react-navigation/native": "^6.1.9",
     "@react-navigation/stack": "^6.3.20",
     "@rneui/base": "github:react-native-elements/react-native-elements#base",
     "@rneui/themed": "github:react-native-elements/react-native-elements#themed",
+    "@types/expo__vector-icons": "^10.0.0",
     "expo": "^49.0.3",
     "expo-status-bar": "~1.6.0",
     "react": "18.2.0",

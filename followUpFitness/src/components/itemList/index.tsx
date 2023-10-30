@@ -1,5 +1,4 @@
 import React from "react";
-import { View } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Container, IconContainer, InfoContainer, Title, Kcal } from './style';
 import { Item } from "../../types";
