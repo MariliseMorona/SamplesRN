@@ -2,6 +2,7 @@ import React from "react";
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Home from "../pages/Home";
+import NewItem from "../pages/NewItem";
 
 const Stack = createStackNavigator();
 
@@ -19,7 +20,8 @@ const Routes:React.FC = () => {
                         fontWeight: 'bold',
                     }
                 }}>
-                <Stack.Screen name="Home" component={Home}/>
+                <Stack.Screen name="Home" component={Home} options={{headerShown: false}}/>
+                <Stack.Screen name="NewItem" component={NewItem} options={{title: "Novo Item"}}/>
             </Stack.Navigator>
         </NavigationContainer>
     );
